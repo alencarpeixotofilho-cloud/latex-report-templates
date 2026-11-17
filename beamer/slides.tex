@@ -1,0 +1,98 @@
+% Beamer template — results presentation.
+% Compile from this folder:  latexmk -pdf slides.tex
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage{../identity}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+% ---- Theme built from identity.sty ------------------------------------------------
+\usetheme{default}
+\setbeamercolor{frametitle}{fg=white,bg=primary}
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{subtitle}{fg=white}
+\setbeamercolor{structure}{fg=secondary}
+\setbeamercolor{normal text}{fg=black!85}
+\setbeamercolor{block title}{fg=white,bg=secondary}
+\setbeamercolor{block body}{bg=surface}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{frametitle}{\nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.4ex,dp=1.4ex,leftskip=1.2em]{frametitle}
+  \usebeamerfont{frametitle}\insertframetitle\end{beamercolorbox}}
+\setbeamertemplate{footline}{\hfill{\color{muted}\scriptsize\orgname\quad\insertframenumber\hspace{1.2em}}\vspace{0.8em}}
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[primary] (current page.north west) rectangle (current page.south east);
+    \node[anchor=west,text width=11cm,align=left,text=white] at ([xshift=1.2cm]current page.west)
+      {{\small\orgunit}\\[0.4cm]{\LARGE\bfseries\inserttitle}\\[0.3cm]{\large\insertsubtitle}\\[1cm]{\small\insertdate}};
+  \end{tikzpicture}}
+
+\title{Mock Exam 3 — Results}
+\subtitle{Item quality and cohort performance}
+\date{November 2026}
+
+\begin{document}
+
+\begin{frame}[plain]\titlepage\end{frame}
+
+\begin{frame}{At a glance}
+\begin{columns}[T]
+\column{0.24\textwidth}\centering{\Huge\bfseries\color{primary}412}\\{\small examinees}
+\column{0.24\textwidth}\centering{\Huge\bfseries\color{primary}58.7\%}\\{\small mean score}
+\column{0.24\textwidth}\centering{\Huge\bfseries\color{primary}0.91}\\{\small reliability}
+\column{0.24\textwidth}\centering{\Huge\bfseries\color{danger}3}\\{\small items discarded}
+\end{columns}
+\vspace{1cm}
+\begin{block}{Main message}
+Reliable exam; one key error corrected before results were released.
+\end{block}
+\end{frame}
+
+\begin{frame}{Performance by domain}
+\centering
+\begin{tikzpicture}
+\begin{axis}[xbar,width=0.8\textwidth,height=5.2cm,xmin=0,xmax=100,
+  symbolic y coords={Public Health,Obstetrics \& Gynecology,Pediatrics,Surgery,Internal Medicine},
+  ytick=data,xlabel={Mean \% correct},bar width=11pt,axis lines*=left,
+  nodes near coords,nodes near coords align={horizontal},
+  every node near coord/.append style={text=primary,font=\small},
+  ]
+\addplot[fill=secondary,draw=none] coordinates {(51.3,Public Health) (57.9,Obstetrics \& Gynecology) (60.5,Pediatrics) (59.8,Surgery) (61.2,Internal Medicine)};
+\end{axis}
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Item quality}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{tabular}{lrr}
+\toprule
+Decision & Items & \% \\
+\midrule
+\textcolor{success}{Keep} & 86 & 86 \\
+\textcolor{accent}{Review} & 11 & 11 \\
+\textcolor{danger}{Discard} & 3 & 3 \\
+\bottomrule
+\end{tabular}
+\column{0.45\textwidth}
+\begin{itemize}
+\item Key error detected by negative discrimination
+\item Two items with $r < 0.10$
+\item Eleven items returned to authors
+\end{itemize}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Next steps}
+\begin{enumerate}
+\item Re-score with the corrected key
+\item Item-writing workshop focused on Public Health
+\item Apply the review checklist to all new items
+\end{enumerate}
+\vfill
+{\scriptsize\color{muted} All numbers are fictitious.}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,27 @@
+% identity.sty — single place for the visual identity of every template.
+% Change colours, fonts, organisation name and logo here; all documents follow.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{identity}[2026/11/17 Visual identity for report templates]
+
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+
+% ---- Organisation -------------------------------------------------------------
+\newcommand{\orgname}{Assessment Office}
+\newcommand{\orgunit}{Educational Measurement Unit}
+\newcommand{\orglogo}{}            % e.g. \includegraphics[height=1.1cm]{logo.pdf}
+
+% ---- Colours ------------------------------------------------------------------
+\definecolor{primary}{HTML}{1F3A5F}
+\definecolor{secondary}{HTML}{1F6FEB}
+\definecolor{accent}{HTML}{D29922}
+\definecolor{success}{HTML}{2DA44E}
+\definecolor{danger}{HTML}{CF222E}
+\definecolor{muted}{HTML}{57606A}
+\definecolor{surface}{HTML}{F6F8FA}
+
+% ---- Fonts --------------------------------------------------------------------
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}

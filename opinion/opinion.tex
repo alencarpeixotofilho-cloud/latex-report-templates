@@ -1,0 +1,82 @@
+% Technical opinion template — short, formal, numbered paragraphs.
+% Compile from this folder:  latexmk -pdf opinion.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage{../identity}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs,enumitem,tabularx}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\docnumber}{TO-2026/014}
+\newcommand{\doctitle}{Technical Opinion on the Validity of Item Q015}
+\newcommand{\docdate}{17 November 2026}
+
+\pagestyle{fancy}\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\color{primary}\bfseries\orgname}
+\fancyhead[R]{\color{muted}\docnumber}
+\fancyfoot[C]{\color{muted}\footnotesize\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{0.6em}
+
+\newcounter{para}
+\newcommand{\para}{\refstepcounter{para}\textbf{\thepara.}~}
+
+\begin{document}
+
+{\color{primary}\LARGE\bfseries \doctitle}\par
+\vspace{4pt}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Reference:} & \docnumber \\
+\textbf{Date:} & \docdate \\
+\textbf{Subject:} & Request to review item Q015 of Mock Exam 3 \\
+\end{tabularx}
+\vspace{6pt}\hrule\vspace{10pt}
+
+\section*{1\quad Background}
+\para A review of item Q015 was requested after examinees reported two
+defensible answers. This opinion assesses the item using content review and
+post-administration statistics.
+
+\section*{2\quad Analysis}
+\para The item showed a corrected point-biserial of $r = -0.23$, meaning that
+higher-scoring examinees were \emph{less} likely to choose the published key.
+
+\para Option analysis shows that 61\% of the top third chose option~A, while the
+published key is option~B.
+
+\begin{center}
+\begin{tabular}{c r r r}
+\toprule
+\textbf{Option} & \textbf{Low group} & \textbf{Middle} & \textbf{High group} \\
+\midrule
+A & 18\% & 39\% & \textbf{61\%} \\
+B (published key) & 46\% & 41\% & 29\% \\
+C & 21\% & 12\% & 6\% \\
+D & 15\% & 8\% & 4\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\para Independent content review by two experts confirmed that option~A is the
+correct answer according to current guidelines.
+
+\section*{3\quad Opinion}
+\para The item is \textbf{miskeyed}. It is recommended that:
+\begin{enumerate}[label=(\alph*),nosep]
+  \item the key be changed to option A and the exam re-scored;
+  \item the item be returned to the author for revision of the distractors;
+  \item the review checklist be applied to all items from the same author.
+\end{enumerate}
+
+\vspace{2cm}
+\begin{tabular}{@{}l}
+\rule{6cm}{0.4pt}\\
+Assessment reviewer \\
+\orgunit
+\end{tabular}
+
+\vfill
+{\footnotesize\color{muted} Fictitious example for demonstration purposes.}
+\end{document}
